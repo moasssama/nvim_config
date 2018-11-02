@@ -1,0 +1,17 @@
+# Travis CI Build Configuration file for boxes
+
+language: c
+
+script: make && make test
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+    - flex
+    - bison
+
+branches:
+  only:
+  - master
