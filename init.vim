@@ -251,7 +251,6 @@ augroup END
 
 "let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-
 " coluna das dobras 
 set foldcolumn=4
 set foldmethod=manual
@@ -273,3 +272,8 @@ endfunction
 set showbreak=...
 
 nmap <F4> :ChangesStyleToggle<cr>:ChangesStyleToggle<cr>:ChangesStyleToggle<cr>
+
+"Permite alterar e trocar o buffer
+set hidden
+
+
