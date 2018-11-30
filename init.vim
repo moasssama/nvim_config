@@ -273,7 +273,19 @@ set showbreak=...
 
 nmap <F4> :ChangesStyleToggle<cr>:ChangesStyleToggle<cr>:ChangesStyleToggle<cr>
 
+let g:changes_autocmd=1 
+let g:changes_verbose=0 
+
 "Permite alterar e trocar o buffer
 set hidden
 
+" cusorline boladão
+"
+set cursorline
+hi cursorline cterm=none term=none
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+"highlight CursorLine guibg=#303000 ctermbg=234
+highlight CursorLine guibg=#303000 ctermbg=239
 
+set guicursor=
