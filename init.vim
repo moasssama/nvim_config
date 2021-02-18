@@ -28,12 +28,22 @@ set cursorline
  let g:syntastic_check_on_wq = 0
  let g:syntastic_csslint_args="--ignore=outline-none" 
 
- let g:syntastic_html_checkers = ['w3', 'validator', 'jshint', 'eslint', 'htmlhint', ]
- let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'phplint' ]
+" let g:syntastic_html_checkers = ['w3', 'validator', 'jshint', 'eslint', 'htmlhint', ]
+  "let g:syntastic_html_checkers = ['w3', 'eslint', 'htmlhint', 'tidy' ]
+let g:syntastic_html_checkers = ['validator', 'eslint', 'htmlhint', 'tidy' ]
+let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd', 'phplint' ]
+ let g:syntastic_css_checkers = ['csslint', 'recess', 'mixedindentlint', 'prettycss', 'stylelint', 'tidy', 'csstidy']
+" let g:syntastic_css_checkers = ['recess', 'mixedindentlint', 'prettycss', 'stylelint', 'tidy']
+ let g:syntastic_javascript_checkers = ['stylelint', 'jscs', 'jsslint', 'jls', 'jsxhint'  ]
 
- let g:syntastic_css_checkers = ['csslint', 'recess', 'mixedindentlint', 'prettycss', 'stylelint']
- let g:syntastic_javascript_checkers = ['gjsslint', 'jscs', 'jsslint', 'jls', 'jsxhint'  ]
 
+
+" In ~/.vim/vimrc, or somewhere similar.
+"let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+"let g:ale_linters = {'jsx': ['stylelint', 'eslint','csstidy']}
+
+"let g:ale_linter_aliases = {'html': ['html', 'javascript', 'css']}
+"let g:CSSLint_FileTypeList = ['css', 'less', 'sess']
 "setlocal autoindent
 
 "Tabulação
@@ -187,7 +197,8 @@ let g:airline_powerline_fonts = 1
         autocmd VimEnter * call AirlineInit()
 
 
-let g:syntastic_error_symbol = "✗"
+"let g:syntastic_error_symbol = "✗"
+let g:syntastic_error_symbol = "X"
 "let g:syntastic_warning_symbol = "<img draggable="false" class="emoji" alt="⚠" src="https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/svg/26a0.svg">"
 
 
@@ -281,11 +292,31 @@ set hidden
 
 " cusorline boladão
 "
-set cursorline
-hi cursorline cterm=none term=none
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
+"set cursorline
+"hi cursorline cterm=none term=none
+"autocmd WinEnter * setlocal cursorline
+"autocmd WinLeave * setlocal nocursorline
 "highlight CursorLine guibg=#303000 ctermbg=234
-highlight CursorLine guibg=#303000 ctermbg=239
+"highlight CursorLine guibg=#303000 ctermbg=239
 
 set guicursor=
+
+
+
+"mover linhas
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+
+" centralizar o cursor 
+set so=9915
+
+let g:WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+let g:WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
